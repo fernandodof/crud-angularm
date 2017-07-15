@@ -8,12 +8,13 @@ import {
     ShowLineComponent,
     EditEntityFormComponent,
 } from 'angularm';
+import { EditFormLineComponent } from "app/edit-entity/edit-form-line";
 
-import { EditFormLineComponent } from 'app/edit-entity/edit-form-line';
+// import { EditFormLineComponent } from 'app/edit-entity/edit-form-line';
 
 export let defineRules = (angularm: AngularmService) => {
     angularm
-        .detr('list_entities', ListingTableComponent) //Through the port will be passed an entity
+        .detr('list_entities', ListingTableComponent)
         .der('table_line', EntityLineComponent)
         .detr('create_form', CreateEntityComponent)
         .ptr('form_line', '*', 'code', null, FormLineComponent, { inputType: 'number' })

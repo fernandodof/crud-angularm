@@ -8,18 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   HomeComponent,
   AngularmModule,
-  ListEntitiesComponent,
-  NewEntityComponent,
-  ShowEntityComponent,
-  EditEntityComponent,
-  PageNotFoundComponent
 } from 'angularm';
 
 import { AppComponent } from './app.component';
-import { EditFormLineComponent } from "app/edit-entity/edit-form-line";
+// import { EditFormLineComponent } from "app/edit-entity/edit-form-line";
+import { NewEntityComponent } from "app/new-entity/new-entity.component";
+import { ShowEntityComponent } from "app/show-entity/show-entity.component";
+import { EditEntityComponent } from "app/edit-entity/edit-entity.component";
+import { ListEntityTypeComponent } from "app/list-entity-type/list-entity-type.component";
 
 export const routes: Routes = [
-  { path: ':entitytypename', component: ListEntitiesComponent },
+  { path: ':entitytypename', component: ListEntityTypeComponent },
   { path: ':entitytypename/new', component: NewEntityComponent },
   { path: ':entitytypename/:key', component: ShowEntityComponent },
   { path: ':entitytypename/:key/edit', component: EditEntityComponent }
@@ -28,11 +27,11 @@ export const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    ListEntityTypeComponent,
     NewEntityComponent,
     ShowEntityComponent,
     EditEntityComponent,
-    EditFormLineComponent,
-    PageNotFoundComponent
+    // EditFormLineComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +45,7 @@ export const routes: Routes = [
   ],
   providers: [],
   entryComponents: [
-    EditFormLineComponent
+    // EditFormLineComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -2,7 +2,8 @@
   <h1>{{ entityType.plural | titleCase }}</h1>
 
   <div class="table-reponsive">
-    <table data-toggle="table" data-pagination="true" data-search="true" data-height="300" class="table table-striped">
+    <table data-toggle="table" data-pagination="true" [attr.data-search]="configuration.dataSearch ? 'configuration.dataSearch' : ''"
+      data-height="300" class="table table-striped">
       <thead>
         <tr>
           <th *ngFor="let propertyType of entityType.propertyTypes" id="{{propertyType.name}}Header">
@@ -18,9 +19,9 @@
             {{ property.value }}
           </td>
           <td>
-            <a href="#" (click)="show(entity.key)" class="btn btn-default btn-xs">Show</a>
-            <a href="#" (click)="edit(entity.key)" class="btn btn-default btn-xs">Edit</a>
-            <a href="#" (click)="destroy(entity.key)" class="btn btn-default btn-xs btn-danger">Destroy</a>
+            <a href="#" (click)="show(entity.key)" [ngClass]="'btn btn-default btn-xs'">Show</a>
+            <a href="#" (click)="edit(entity.key)" [ngClass]="'btn btn-default btn-xs'">Edit</a>
+            <a href="#" (click)="destroy(entity.key)" [ngClass]="'btn btn-default btn-xs btn-danger'">Destroy</a>
           </td>
         </tr>
       </tbody>

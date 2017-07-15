@@ -3,9 +3,12 @@
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
     <div [mgForeachProperty]="'edit_form_line'" [entity]="entity" [mgForm]="myForm">
+      <div [ngClass]="'form-group'">
+        <div [ngClass]="'col-lg-offset-2 col-lg-10'">
+          <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}" class="btn btn-success">
+        </div>
+      </div>
     </div>
-
-    <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}" class="btn btn-success">
 
   </form>
   <br>
