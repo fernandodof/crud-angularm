@@ -1,8 +1,9 @@
 <div *ngIf="entity">
 
-  <p *ngFor="let property of entity.mountProperties()">
-    <strong>{{property.propertyType.name | titleCase}}:</strong> {{property.value}}
-  </p>
+  <dl class="dl-horizontal" *ngFor="let property of entity.mountProperties()">
+    <dt><strong>{{property.propertyType.name | titleCase}}:</strong></dt>
+    <dd>{{property.value}}</dd>
+  </dl>
 
   <a href="#" (click)="edit()">Edit</a>
   <a href="#" (click)="back()">Back</a>

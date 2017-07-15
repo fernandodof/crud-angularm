@@ -5,30 +5,25 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
 
     <div *ngFor="let propertyType of entityType.propertyTypes">
+      <div class="form-group">
+        <label for="{{propertyType.entityType.singular}}_{{propertyType.name}}">
+          {{propertyType.name | titleCase}}
+        </label>
 
-      <label for="{{propertyType.entityType.singular}}_{{propertyType.name}}">
-        {{propertyType.name | titleCase}}
-      </label>
+        <input *ngIf="propertyType.type == 'string'" type="text" ngModel id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
+          name="{{propertyType.name}}" placeholder="{{propertyType.name | titleCase}}" class="form-control">
 
-      <input *ngIf="propertyType.type == 'string'"
-        type="text" ngModel
-        id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
-        name="{{propertyType.name}}"
-        placeholder="{{propertyType.name | titleCase}}">
+        <input *ngIf="propertyType.type == 'number'" type="number" ngModel id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
+          name="{{propertyType.name}}" placeholder="{{propertyType.name | titleCase}}" class="form-control">
 
-      <input *ngIf="propertyType.type == 'number'"
-        type="number" ngModel
-        id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
-        name="{{propertyType.name}}"
-        placeholder="{{propertyType.name | titleCase}}">
-
-      <br>
+      </div>
     </div>
 
-    <input type="submit" value="Create {{ entityType.singular | titleCase }}">
+    <input type="submit" value="Create {{ entityType.singular | titleCase }}" class="btn btn-primary">
 
   </form>
 
-  <a routerLink="/{{entityType.plural}}">Back</a>
+  <br>
+  <a routerLink="/{{entityType.plural}}" class="btn btn-default btn-sm">Back</a>
 
 </div>

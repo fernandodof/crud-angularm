@@ -17,11 +17,10 @@ export class AppComponent extends EntityTypesComponent {
     this.entityTypes = angularm.listEntityTypes();
 
     defineRules(angularm);
+    angularm.create('book', { name: 'Refactoring', author: 'Fowler' });
+    angularm.create('book', { name: 'Patterns', author: 'GoF' });
 
-    angularm.create('book', {name: 'Refactoring', author: 'Fowler'});
-    angularm.create('book', {name: 'Patterns', author: 'GoF'});
+    angularm.create('product', { id: '1', description: 'Banana' });
 
-    angularm.create('product', {id: '1', description: 'Banana'});
-    
   }
 }

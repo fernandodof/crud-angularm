@@ -12,7 +12,7 @@ export class ListEntityTypeComponent implements OnInit {
 
   private entityType: EntityType;
   private entities: Entity[];
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -21,19 +21,17 @@ export class ListEntityTypeComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .switchMap( (params: Params) =>
-         this.angularm.findEntityType(params['entitytypename'])
+      .switchMap((params: Params) =>
+        this.angularm.findEntityType(params['entitytypename'])
       )
-      .subscribe( (entityType: EntityType) => {
-         this.entityType = entityType;
-         
-         this.angularm.listAll(this.entityType.singular)
-           .then( (entities) => {
-               this.entities = entities
-             }
-           );
-       }
-      );
+      .subscribe((entityType: EntityType) => {
+        this.entityType = entityType;
+
+        this.angularm.listAll(this.entityType.singular)
+          .then((entities) => {
+            this.entities = entities
+          });
+      });
   }
 
   show(id) {

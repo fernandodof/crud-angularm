@@ -2,14 +2,13 @@
   <h1>Editing {{ entity.entityType.singular | titleCase }}</h1>
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
-    <div [mgForeachProperty]="'edit_form_line'"
-      [entity]="entity"
-      [mgForm]="myForm">
+    <div [mgForeachProperty]="'edit_form_line'" [entity]="entity" [mgForm]="myForm">
     </div>
 
-    <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}">
+    <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}" class="btn btn-success">
 
   </form>
-  <a href="#" (click)="show()">Show</a>
-  <a href="#" (click)="back()">Back</a>
+  <br>
+  <a href="#" (click)="show()" class="btn btn-sm btn-primary">Show</a>
+  <a href="#" (click)="back()" class="btn btn-sm btn-default">Back</a>
 </div>

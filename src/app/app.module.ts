@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularmModule } from 'angularm';
 
@@ -12,12 +13,14 @@ import { NewEntityComponent } from './new-entity/new-entity.component';
 import { ShowEntityComponent } from './show-entity/show-entity.component';
 import { EditEntityComponent } from './edit-entity/edit-entity.component';
 import { EditFormLineComponent } from "app/edit-entity/edit-form-line";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [
   { path: ':entitytypename', component: ListEntityTypeComponent },
   { path: ':entitytypename/new', component: NewEntityComponent },
   { path: ':entitytypename/:key', component: ShowEntityComponent },
-  { path: ':entitytypename/:key/edit', component: EditEntityComponent }
+  { path: ':entitytypename/:key/edit', component: EditEntityComponent },
+  { path: '*', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ export const routes: Routes = [
     NewEntityComponent,
     ShowEntityComponent,
     EditEntityComponent,
-    EditFormLineComponent
+    EditFormLineComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ export const routes: Routes = [
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AngularmModule
+    AngularmModule,
+
   ],
   providers: [],
   entryComponents: [

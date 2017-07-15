@@ -24,13 +24,14 @@ export class EditEntityComponent extends EntityComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .switchMap( (params: Params) =>
+      .switchMap((params: Params) =>
         this.mapEntityParam(params)
       )
-      .subscribe( (entity: any) => {
+      .subscribe((entity: any) => {
         this.entity = entity;
         const fbConf: any = {};
 
+        //can have validations
         this.entity.entityType.properties.forEach(propertyType => {
           fbConf[propertyType.name] = this.entity.properties[propertyType.name];
         });
@@ -45,8 +46,7 @@ export class EditEntityComponent extends EntityComponent implements OnInit {
         (entityType: EntityType) => {
           const entityPromise = this.angularm.findUnique(entityType.singular, params['key']);
           resolve(entityPromise);
-        }
-      );
+        });
     });
   }
 
